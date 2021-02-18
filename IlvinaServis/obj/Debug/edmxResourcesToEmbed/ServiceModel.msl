@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище masterModelContainer" CdmEntityContainer="ServiceEntityes">
+    <EntitySetMapping Name="Battles">
+      <EntityTypeMapping TypeName="masterModel.Battles">
+        <MappingFragment StoreEntitySet="Battles">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="date" ColumnName="date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Classes">
+      <EntityTypeMapping TypeName="masterModel.Classes">
+        <MappingFragment StoreEntitySet="Classes">
+          <ScalarProperty Name="class" ColumnName="class" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="numGuns" ColumnName="numGuns" />
+          <ScalarProperty Name="bore" ColumnName="bore" />
+          <ScalarProperty Name="displacement" ColumnName="displacement" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Company">
+      <EntityTypeMapping TypeName="masterModel.Company">
+        <MappingFragment StoreEntitySet="Company">
+          <ScalarProperty Name="ID_comp" ColumnName="ID_comp" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departments">
+      <EntityTypeMapping TypeName="masterModel.Departments">
+        <MappingFragment StoreEntitySet="Departments">
+          <ScalarProperty Name="ID_Dep" ColumnName="ID_Dep" />
+          <ScalarProperty Name="NameDep" ColumnName="NameDep" />
+          <ScalarProperty Name="HeardName" ColumnName="HeardName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Exemplar">
+      <EntityTypeMapping TypeName="masterModel.Exemplar">
+        <MappingFragment StoreEntitySet="Exemplar">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ISBN" ColumnName="ISBN" />
+          <ScalarProperty Name="DataIn" ColumnName="DataIn" />
+          <ScalarProperty Name="DataOut" ColumnName="DataOut" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gruppa">
+      <EntityTypeMapping TypeName="masterModel.Gruppa">
+        <MappingFragment StoreEntitySet="Gruppa">
+          <ScalarProperty Name="ID_Group" ColumnName="ID_Group" />
+          <ScalarProperty Name="Speciality" ColumnName="Speciality" />
+          <ScalarProperty Name="DepID" ColumnName="DepID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Laptop">
+      <EntityTypeMapping TypeName="masterModel.Laptop">
+        <MappingFragment StoreEntitySet="Laptop">
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="model" ColumnName="model" />
+          <ScalarProperty Name="speed" ColumnName="speed" />
+          <ScalarProperty Name="ram" ColumnName="ram" />
+          <ScalarProperty Name="hd" ColumnName="hd" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="screen" ColumnName="screen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Laptop_TMP">
+      <EntityTypeMapping TypeName="masterModel.Laptop_TMP">
+        <MappingFragment StoreEntitySet="Laptop_TMP">
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="model" ColumnName="model" />
+          <ScalarProperty Name="speed" ColumnName="speed" />
+          <ScalarProperty Name="ram" ColumnName="ram" />
+          <ScalarProperty Name="hd" ColumnName="hd" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="screen" ColumnName="screen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Outcomes">
+      <EntityTypeMapping TypeName="masterModel.Outcomes">
+        <MappingFragment StoreEntitySet="Outcomes">
+          <ScalarProperty Name="ship" ColumnName="ship" />
+          <ScalarProperty Name="battle" ColumnName="battle" />
+          <ScalarProperty Name="result" ColumnName="result" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pass_in_trip">
+      <EntityTypeMapping TypeName="masterModel.Pass_in_trip">
+        <MappingFragment StoreEntitySet="Pass_in_trip">
+          <ScalarProperty Name="trip_no" ColumnName="trip_no" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="ID_psg" ColumnName="ID_psg" />
+          <ScalarProperty Name="place" ColumnName="place" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Passenger">
+      <EntityTypeMapping TypeName="masterModel.Passenger">
+        <MappingFragment StoreEntitySet="Passenger">
+          <ScalarProperty Name="ID_psg" ColumnName="ID_psg" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Printer">
+      <EntityTypeMapping TypeName="masterModel.Printer">
+        <MappingFragment StoreEntitySet="Printer">
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="model" ColumnName="model" />
+          <ScalarProperty Name="color" ColumnName="color" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="price" ColumnName="price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product">
+      <EntityTypeMapping TypeName="masterModel.Product">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="maker" ColumnName="maker" />
+          <ScalarProperty Name="model" ColumnName="model" />
+          <ScalarProperty Name="type" ColumnName="type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Readers">
+      <EntityTypeMapping TypeName="masterModel.Readers">
+        <MappingFragment StoreEntitySet="Readers">
+          <ScalarProperty Name="ReaderID" ColumnName="ReaderID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Birth_Day" ColumnName="Birth_Day" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ships">
+      <EntityTypeMapping TypeName="masterModel.Ships">
+        <MappingFragment StoreEntitySet="Ships">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="class" ColumnName="class" />
+          <ScalarProperty Name="launched" ColumnName="launched" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Students">
+      <EntityTypeMapping TypeName="masterModel.Students">
+        <MappingFragment StoreEntitySet="Students">
+          <ScalarProperty Name="StudID" ColumnName="StudID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+          <ScalarProperty Name="DepID" ColumnName="DepID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Trip">
+      <EntityTypeMapping TypeName="masterModel.Trip">
+        <MappingFragment StoreEntitySet="Trip">
+          <ScalarProperty Name="trip_no" ColumnName="trip_no" />
+          <ScalarProperty Name="ID_comp" ColumnName="ID_comp" />
+          <ScalarProperty Name="plane" ColumnName="plane" />
+          <ScalarProperty Name="town_from" ColumnName="town_from" />
+          <ScalarProperty Name="town_to" ColumnName="town_to" />
+          <ScalarProperty Name="time_out" ColumnName="time_out" />
+          <ScalarProperty Name="time_in" ColumnName="time_in" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MSreplication_options">
+      <EntityTypeMapping TypeName="masterModel.MSreplication_options">
+        <MappingFragment StoreEntitySet="MSreplication_options">
+          <ScalarProperty Name="optname" ColumnName="optname" />
+          <ScalarProperty Name="value" ColumnName="value" />
+          <ScalarProperty Name="major_version" ColumnName="major_version" />
+          <ScalarProperty Name="minor_version" ColumnName="minor_version" />
+          <ScalarProperty Name="revision" ColumnName="revision" />
+          <ScalarProperty Name="install_failures" ColumnName="install_failures" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="spt_fallback_db">
+      <EntityTypeMapping TypeName="masterModel.spt_fallback_db">
+        <MappingFragment StoreEntitySet="spt_fallback_db">
+          <ScalarProperty Name="xserver_name" ColumnName="xserver_name" />
+          <ScalarProperty Name="xdttm_ins" ColumnName="xdttm_ins" />
+          <ScalarProperty Name="xdttm_last_ins_upd" ColumnName="xdttm_last_ins_upd" />
+          <ScalarProperty Name="xfallback_dbid" ColumnName="xfallback_dbid" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="dbid" ColumnName="dbid" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="version" ColumnName="version" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="spt_fallback_dev">
+      <EntityTypeMapping TypeName="masterModel.spt_fallback_dev">
+        <MappingFragment StoreEntitySet="spt_fallback_dev">
+          <ScalarProperty Name="xserver_name" ColumnName="xserver_name" />
+          <ScalarProperty Name="xdttm_ins" ColumnName="xdttm_ins" />
+          <ScalarProperty Name="xdttm_last_ins_upd" ColumnName="xdttm_last_ins_upd" />
+          <ScalarProperty Name="xfallback_low" ColumnName="xfallback_low" />
+          <ScalarProperty Name="xfallback_drive" ColumnName="xfallback_drive" />
+          <ScalarProperty Name="low" ColumnName="low" />
+          <ScalarProperty Name="high" ColumnName="high" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="phyname" ColumnName="phyname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="spt_fallback_usg">
+      <EntityTypeMapping TypeName="masterModel.spt_fallback_usg">
+        <MappingFragment StoreEntitySet="spt_fallback_usg">
+          <ScalarProperty Name="xserver_name" ColumnName="xserver_name" />
+          <ScalarProperty Name="xdttm_ins" ColumnName="xdttm_ins" />
+          <ScalarProperty Name="xdttm_last_ins_upd" ColumnName="xdttm_last_ins_upd" />
+          <ScalarProperty Name="xfallback_vstart" ColumnName="xfallback_vstart" />
+          <ScalarProperty Name="dbid" ColumnName="dbid" />
+          <ScalarProperty Name="segmap" ColumnName="segmap" />
+          <ScalarProperty Name="lstart" ColumnName="lstart" />
+          <ScalarProperty Name="sizepg" ColumnName="sizepg" />
+          <ScalarProperty Name="vstart" ColumnName="vstart" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="spt_monitor">
+      <EntityTypeMapping TypeName="masterModel.spt_monitor">
+        <MappingFragment StoreEntitySet="spt_monitor">
+          <ScalarProperty Name="lastrun" ColumnName="lastrun" />
+          <ScalarProperty Name="cpu_busy" ColumnName="cpu_busy" />
+          <ScalarProperty Name="io_busy" ColumnName="io_busy" />
+          <ScalarProperty Name="idle" ColumnName="idle" />
+          <ScalarProperty Name="pack_received" ColumnName="pack_received" />
+          <ScalarProperty Name="pack_sent" ColumnName="pack_sent" />
+          <ScalarProperty Name="connections" ColumnName="connections" />
+          <ScalarProperty Name="pack_errors" ColumnName="pack_errors" />
+          <ScalarProperty Name="total_read" ColumnName="total_read" />
+          <ScalarProperty Name="total_write" ColumnName="total_write" />
+          <ScalarProperty Name="total_errors" ColumnName="total_errors" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

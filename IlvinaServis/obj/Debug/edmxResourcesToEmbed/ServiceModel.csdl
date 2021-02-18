@@ -1,0 +1,429 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="masterModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Battles">
+    <Key>
+      <PropertyRef Name="name" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="date" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Outcomes" Relationship="Self.Outcomes_fk" FromRole="Battles" ToRole="Outcomes" />
+  </EntityType>
+  <EntityType Name="Classes">
+    <Key>
+      <PropertyRef Name="class" />
+    </Key>
+    <Property Name="class" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="type" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="country" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="numGuns" Type="Byte" />
+    <Property Name="bore" Type="Single" />
+    <Property Name="displacement" Type="Int32" />
+    <NavigationProperty Name="Ships" Relationship="Self.ships_fk" FromRole="Classes" ToRole="Ships" />
+  </EntityType>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="ID_comp" />
+    </Key>
+    <Property Name="ID_comp" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Trip" Relationship="Self.FK__Trip__time_in__442B18F2" FromRole="Company" ToRole="Trip" />
+  </EntityType>
+  <EntityType Name="Departments">
+    <Key>
+      <PropertyRef Name="ID_Dep" />
+    </Key>
+    <Property Name="ID_Dep" Type="Int32" Nullable="false" />
+    <Property Name="NameDep" Type="String" MaxLength="30" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="HeardName" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Exemplar">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ISBN" Type="Int32" Nullable="false" />
+    <Property Name="DataIn" Type="DateTime" Precision="0" />
+    <Property Name="DataOut" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="Gruppa">
+    <Key>
+      <PropertyRef Name="ID_Group" />
+    </Key>
+    <Property Name="ID_Group" Type="Int32" Nullable="false" />
+    <Property Name="Speciality" Type="String" MaxLength="30" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="DepID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Students" Relationship="Self.fk_2" FromRole="Gruppa" ToRole="Students" />
+  </EntityType>
+  <EntityType Name="Laptop">
+    <Key>
+      <PropertyRef Name="code" />
+    </Key>
+    <Property Name="code" Type="Int32" Nullable="false" />
+    <Property Name="model" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="speed" Type="Int32" />
+    <Property Name="ram" Type="Int32" />
+    <Property Name="hd" Type="Int32" />
+    <Property Name="price" Type="Int32" />
+    <Property Name="screen" Type="Int32" />
+    <NavigationProperty Name="Product" Relationship="Self.FK__Laptop__model__2A6B46EF" FromRole="Laptop" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Laptop_TMP">
+    <Key>
+      <PropertyRef Name="code" />
+    </Key>
+    <Property Name="code" Type="Int32" Nullable="false" />
+    <Property Name="model" Type="Int32" />
+    <Property Name="speed" Type="Int32" />
+    <Property Name="ram" Type="Int32" />
+    <Property Name="hd" Type="Int32" />
+    <Property Name="price" Type="Int32" />
+    <Property Name="screen" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Outcomes">
+    <Key>
+      <PropertyRef Name="battle" />
+    </Key>
+    <Property Name="ship" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="battle" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="result" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Battles" Relationship="Self.Outcomes_fk" FromRole="Outcomes" ToRole="Battles" />
+  </EntityType>
+  <EntityType Name="Pass_in_trip">
+    <Key>
+      <PropertyRef Name="date" />
+    </Key>
+    <Property Name="trip_no" Type="Int32" />
+    <Property Name="date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ID_psg" Type="Int32" />
+    <Property Name="place" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Passenger" Relationship="Self.FK__Pass_in_t__ID_ps__49E3F248" FromRole="Pass_in_trip" ToRole="Passenger" />
+    <NavigationProperty Name="Trip" Relationship="Self.FK__Pass_in_t__place__48EFCE0F" FromRole="Pass_in_trip" ToRole="Trip" />
+  </EntityType>
+  <EntityType Name="Passenger">
+    <Key>
+      <PropertyRef Name="ID_psg" />
+    </Key>
+    <Property Name="ID_psg" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Pass_in_trip" Relationship="Self.FK__Pass_in_t__ID_ps__49E3F248" FromRole="Passenger" ToRole="Pass_in_trip" />
+  </EntityType>
+  <EntityType Name="Printer">
+    <Key>
+      <PropertyRef Name="code" />
+    </Key>
+    <Property Name="code" Type="Int32" Nullable="false" />
+    <Property Name="model" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="color" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="type" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="price" Type="Int32" />
+    <NavigationProperty Name="Product" Relationship="Self.FK__Printer__model__2D47B39A" FromRole="Printer" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="model" />
+    </Key>
+    <Property Name="maker" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="model" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Laptop" Relationship="Self.FK__Laptop__model__2A6B46EF" FromRole="Product" ToRole="Laptop" />
+    <NavigationProperty Name="Printer" Relationship="Self.FK__Printer__model__2D47B39A" FromRole="Product" ToRole="Printer" />
+  </EntityType>
+  <EntityType Name="Readers">
+    <Key>
+      <PropertyRef Name="ReaderID" />
+    </Key>
+    <Property Name="ReaderID" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="30" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="30" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Birth_Day" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="Ships">
+    <Key>
+      <PropertyRef Name="name" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="class" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="launched" Type="Int16" />
+    <NavigationProperty Name="Classes" Relationship="Self.ships_fk" FromRole="Ships" ToRole="Classes" />
+  </EntityType>
+  <EntityType Name="Students">
+    <Key>
+      <PropertyRef Name="StudID" />
+    </Key>
+    <Property Name="StudID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="30" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="GroupID" Type="Int32" Nullable="false" />
+    <Property Name="DepID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Gruppa" Relationship="Self.fk_2" FromRole="Students" ToRole="Gruppa" />
+  </EntityType>
+  <EntityType Name="Trip">
+    <Key>
+      <PropertyRef Name="trip_no" />
+    </Key>
+    <Property Name="trip_no" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_comp" Type="Int32" />
+    <Property Name="plane" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="town_from" Type="String" MaxLength="25" FixedLength="true" Unicode="false" />
+    <Property Name="town_to" Type="String" MaxLength="25" FixedLength="true" Unicode="false" />
+    <Property Name="time_out" Type="DateTime" Precision="3" />
+    <Property Name="time_in" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Company" Relationship="Self.FK__Trip__time_in__442B18F2" FromRole="Trip" ToRole="Company" />
+    <NavigationProperty Name="Pass_in_trip" Relationship="Self.FK__Pass_in_t__place__48EFCE0F" FromRole="Trip" ToRole="Pass_in_trip" />
+  </EntityType>
+  <EntityType Name="MSreplication_options">
+    <Key>
+      <PropertyRef Name="optname" />
+      <PropertyRef Name="value" />
+      <PropertyRef Name="major_version" />
+      <PropertyRef Name="minor_version" />
+      <PropertyRef Name="revision" />
+      <PropertyRef Name="install_failures" />
+    </Key>
+    <Property Name="optname" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="value" Type="Boolean" Nullable="false" />
+    <Property Name="major_version" Type="Int32" Nullable="false" />
+    <Property Name="minor_version" Type="Int32" Nullable="false" />
+    <Property Name="revision" Type="Int32" Nullable="false" />
+    <Property Name="install_failures" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="spt_fallback_db">
+    <Key>
+      <PropertyRef Name="xserver_name" />
+      <PropertyRef Name="xdttm_ins" />
+      <PropertyRef Name="xdttm_last_ins_upd" />
+      <PropertyRef Name="name" />
+      <PropertyRef Name="dbid" />
+      <PropertyRef Name="status" />
+      <PropertyRef Name="version" />
+    </Key>
+    <Property Name="xserver_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="xdttm_ins" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="xdttm_last_ins_upd" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="xfallback_dbid" Type="Int16" />
+    <Property Name="name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="dbid" Type="Int16" Nullable="false" />
+    <Property Name="status" Type="Int16" Nullable="false" />
+    <Property Name="version" Type="Int16" Nullable="false" />
+  </EntityType>
+  <EntityType Name="spt_fallback_dev">
+    <Key>
+      <PropertyRef Name="xserver_name" />
+      <PropertyRef Name="xdttm_ins" />
+      <PropertyRef Name="xdttm_last_ins_upd" />
+      <PropertyRef Name="low" />
+      <PropertyRef Name="high" />
+      <PropertyRef Name="status" />
+      <PropertyRef Name="name" />
+      <PropertyRef Name="phyname" />
+    </Key>
+    <Property Name="xserver_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="xdttm_ins" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="xdttm_last_ins_upd" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="xfallback_low" Type="Int32" />
+    <Property Name="xfallback_drive" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="low" Type="Int32" Nullable="false" />
+    <Property Name="high" Type="Int32" Nullable="false" />
+    <Property Name="status" Type="Int16" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="phyname" Type="String" MaxLength="127" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="spt_fallback_usg">
+    <Key>
+      <PropertyRef Name="xserver_name" />
+      <PropertyRef Name="xdttm_ins" />
+      <PropertyRef Name="xdttm_last_ins_upd" />
+      <PropertyRef Name="dbid" />
+      <PropertyRef Name="segmap" />
+      <PropertyRef Name="lstart" />
+      <PropertyRef Name="sizepg" />
+      <PropertyRef Name="vstart" />
+    </Key>
+    <Property Name="xserver_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="xdttm_ins" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="xdttm_last_ins_upd" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="xfallback_vstart" Type="Int32" />
+    <Property Name="dbid" Type="Int16" Nullable="false" />
+    <Property Name="segmap" Type="Int32" Nullable="false" />
+    <Property Name="lstart" Type="Int32" Nullable="false" />
+    <Property Name="sizepg" Type="Int32" Nullable="false" />
+    <Property Name="vstart" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="spt_monitor">
+    <Key>
+      <PropertyRef Name="lastrun" />
+      <PropertyRef Name="cpu_busy" />
+      <PropertyRef Name="io_busy" />
+      <PropertyRef Name="idle" />
+      <PropertyRef Name="pack_received" />
+      <PropertyRef Name="pack_sent" />
+      <PropertyRef Name="connections" />
+      <PropertyRef Name="pack_errors" />
+      <PropertyRef Name="total_read" />
+      <PropertyRef Name="total_write" />
+      <PropertyRef Name="total_errors" />
+    </Key>
+    <Property Name="lastrun" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="cpu_busy" Type="Int32" Nullable="false" />
+    <Property Name="io_busy" Type="Int32" Nullable="false" />
+    <Property Name="idle" Type="Int32" Nullable="false" />
+    <Property Name="pack_received" Type="Int32" Nullable="false" />
+    <Property Name="pack_sent" Type="Int32" Nullable="false" />
+    <Property Name="connections" Type="Int32" Nullable="false" />
+    <Property Name="pack_errors" Type="Int32" Nullable="false" />
+    <Property Name="total_read" Type="Int32" Nullable="false" />
+    <Property Name="total_write" Type="Int32" Nullable="false" />
+    <Property Name="total_errors" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="Outcomes_fk">
+    <End Role="Battles" Type="Self.Battles" Multiplicity="1" />
+    <End Role="Outcomes" Type="Self.Outcomes" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Battles">
+        <PropertyRef Name="name" />
+      </Principal>
+      <Dependent Role="Outcomes">
+        <PropertyRef Name="battle" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ships_fk">
+    <End Role="Classes" Type="Self.Classes" Multiplicity="1" />
+    <End Role="Ships" Type="Self.Ships" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Classes">
+        <PropertyRef Name="class" />
+      </Principal>
+      <Dependent Role="Ships">
+        <PropertyRef Name="class" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Trip__time_in__442B18F2">
+    <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+    <End Role="Trip" Type="Self.Trip" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="ID_comp" />
+      </Principal>
+      <Dependent Role="Trip">
+        <PropertyRef Name="ID_comp" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_2">
+    <End Role="Gruppa" Type="Self.Gruppa" Multiplicity="1" />
+    <End Role="Students" Type="Self.Students" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gruppa">
+        <PropertyRef Name="ID_Group" />
+      </Principal>
+      <Dependent Role="Students">
+        <PropertyRef Name="GroupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Laptop__model__2A6B46EF">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="Laptop" Type="Self.Laptop" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="model" />
+      </Principal>
+      <Dependent Role="Laptop">
+        <PropertyRef Name="model" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pass_in_t__ID_ps__49E3F248">
+    <End Role="Passenger" Type="Self.Passenger" Multiplicity="0..1" />
+    <End Role="Pass_in_trip" Type="Self.Pass_in_trip" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Passenger">
+        <PropertyRef Name="ID_psg" />
+      </Principal>
+      <Dependent Role="Pass_in_trip">
+        <PropertyRef Name="ID_psg" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pass_in_t__place__48EFCE0F">
+    <End Role="Trip" Type="Self.Trip" Multiplicity="0..1" />
+    <End Role="Pass_in_trip" Type="Self.Pass_in_trip" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Trip">
+        <PropertyRef Name="trip_no" />
+      </Principal>
+      <Dependent Role="Pass_in_trip">
+        <PropertyRef Name="trip_no" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Printer__model__2D47B39A">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="Printer" Type="Self.Printer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="model" />
+      </Principal>
+      <Dependent Role="Printer">
+        <PropertyRef Name="model" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ServiceEntityes" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Battles" EntityType="Self.Battles" />
+    <EntitySet Name="Classes" EntityType="Self.Classes" />
+    <EntitySet Name="Company" EntityType="Self.Company" />
+    <EntitySet Name="Departments" EntityType="Self.Departments" />
+    <EntitySet Name="Exemplar" EntityType="Self.Exemplar" />
+    <EntitySet Name="Gruppa" EntityType="Self.Gruppa" />
+    <EntitySet Name="Laptop" EntityType="Self.Laptop" />
+    <EntitySet Name="Laptop_TMP" EntityType="Self.Laptop_TMP" />
+    <EntitySet Name="Outcomes" EntityType="Self.Outcomes" />
+    <EntitySet Name="Pass_in_trip" EntityType="Self.Pass_in_trip" />
+    <EntitySet Name="Passenger" EntityType="Self.Passenger" />
+    <EntitySet Name="Printer" EntityType="Self.Printer" />
+    <EntitySet Name="Product" EntityType="Self.Product" />
+    <EntitySet Name="Readers" EntityType="Self.Readers" />
+    <EntitySet Name="Ships" EntityType="Self.Ships" />
+    <EntitySet Name="Students" EntityType="Self.Students" />
+    <EntitySet Name="Trip" EntityType="Self.Trip" />
+    <EntitySet Name="MSreplication_options" EntityType="Self.MSreplication_options" />
+    <EntitySet Name="spt_fallback_db" EntityType="Self.spt_fallback_db" />
+    <EntitySet Name="spt_fallback_dev" EntityType="Self.spt_fallback_dev" />
+    <EntitySet Name="spt_fallback_usg" EntityType="Self.spt_fallback_usg" />
+    <EntitySet Name="spt_monitor" EntityType="Self.spt_monitor" />
+    <AssociationSet Name="Outcomes_fk" Association="Self.Outcomes_fk">
+      <End Role="Battles" EntitySet="Battles" />
+      <End Role="Outcomes" EntitySet="Outcomes" />
+    </AssociationSet>
+    <AssociationSet Name="ships_fk" Association="Self.ships_fk">
+      <End Role="Classes" EntitySet="Classes" />
+      <End Role="Ships" EntitySet="Ships" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Trip__time_in__442B18F2" Association="Self.FK__Trip__time_in__442B18F2">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="Trip" EntitySet="Trip" />
+    </AssociationSet>
+    <AssociationSet Name="fk_2" Association="Self.fk_2">
+      <End Role="Gruppa" EntitySet="Gruppa" />
+      <End Role="Students" EntitySet="Students" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Laptop__model__2A6B46EF" Association="Self.FK__Laptop__model__2A6B46EF">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Laptop" EntitySet="Laptop" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pass_in_t__ID_ps__49E3F248" Association="Self.FK__Pass_in_t__ID_ps__49E3F248">
+      <End Role="Passenger" EntitySet="Passenger" />
+      <End Role="Pass_in_trip" EntitySet="Pass_in_trip" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pass_in_t__place__48EFCE0F" Association="Self.FK__Pass_in_t__place__48EFCE0F">
+      <End Role="Trip" EntitySet="Trip" />
+      <End Role="Pass_in_trip" EntitySet="Pass_in_trip" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Printer__model__2D47B39A" Association="Self.FK__Printer__model__2D47B39A">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Printer" EntitySet="Printer" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
