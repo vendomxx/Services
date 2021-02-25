@@ -4,47 +4,31 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IlvinaServis"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="MainWindow" Height="850" Width="1300">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition Height="10*"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-            <ListView x:Name="servicesLV"
-                      Background="Pink"
-                      Grid.Row="1">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal"
-                                Margin="100,0,0,0">
-                        <Image Source="{Binding MainImagePath}"
-                               Width="50"
-                               Height="50"></Image>
-                        <StackPanel>
-                            <Label Content="{Binding Title}"></Label>
-                            <StackPanel Orientation="Horizontal">
-                                <Label Content="{Binding GetCost}"></Label>
-                                <Label Content="рублей за"></Label>
-                                <Label Content="{Binding GetDurationInSeconds}"></Label>
-                                <Label Content="мин"></Label>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <Label Content="{Binding Discount}"></Label>
-                                <Label Content="{Binding GetDiscount}"></Label>
-                            </StackPanel>
-                           
-                            <DockPanel LastChildFill="False">
-                                <Button x:Name="editServiceBtn"
-                                        Margin="5">редактировать</Button>
-                                <Button x:Name="removeSeviceBtn"
-                                        Margin="5">удалить</Button>
-                            </DockPanel>
-                        </StackPanel>
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+        <Frame x:Name="mainFrame"
+               Background="White"
+               Grid.Row="1"
+               NavigationUIVisibility="Hidden">
+        </Frame>
+        <Grid Background="#FFE7FABF"></Grid>
+        <Grid Background="#FFE7FABF"
+              Grid.Row="2"></Grid>
+        <DockPanel LastChildFill="False" Grid.Row="0">
+            <Button x:Name="closeBtn"
+                    Margin="5"
+                    Click="closeBtn_Click"
+                    DockPanel.Dock="Right">Выход</Button>
+            <Button x:Name="goBackBtn"
+                    Margin="5"
+                    Click="goBackBtn_Click"
+                    DockPanel.Dock="Right">Назад</Button>
+        </DockPanel>
     </Grid>
 </Window>

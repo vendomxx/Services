@@ -26,10 +26,27 @@ namespace IlvinaServis
         {
             get
             {
-                double dis = Convert.ToDouble(GetDiscount/100);
+                double dis = Convert.ToDouble(Discount/100);
                 double cost = Convert.ToDouble(GetCost);
-                double d =  +cost*dis;
+                double d =  cost+cost*dis;
                 return d;
+            }
+        }
+        public string ColorDiscount
+        {
+           
+            get
+            {
+                string color="";
+                if (this.Discount != 0) color = "Green";
+                return color;
+            }
+        }
+        public string MainImage
+        {
+            get
+            {
+                return ( @"/" + this.MainImagePath);
             }
         }
     }

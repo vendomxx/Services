@@ -25,7 +25,18 @@ namespace IlvinaServis
         public MainWindow()
         {
             InitializeComponent();
-            servicesLV.ItemsSource = MainWindow.DB.Service.ToList();
+            mainFrame.Navigate(new Pages.ServicesViewPage());
+        }
+
+        private void closeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void goBackBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (mainFrame.CanGoBack) mainFrame.GoBack();
+            else MessageBox.Show("Вы находитесь на главной странице!","Сообщение");
         }
     }
 }
